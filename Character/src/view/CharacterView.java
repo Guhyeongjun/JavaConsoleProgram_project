@@ -94,8 +94,6 @@ public class CharacterView {
 	    	return;
 	    }
         
-        
-        
         //서버 선택
         System.out.println("Select server : ");
         System.out.println("1. Korea");
@@ -133,8 +131,7 @@ public class CharacterView {
 	    } catch (IllegalArgumentException e) {
 	    	System.out.println(e.getMessage());
 	    	return;
-	    }
-        
+	    }    
         
         //캐릭터 생성 및 저장
         Character character = new Character(job, name, gender, server);
@@ -168,12 +165,17 @@ public class CharacterView {
 	     }
 
 	     System.out.print("Enter new name : ");
-	     String newName = sc.nextLine();
-
-	     Character characterToUpdate = characters.get(index - 1);
-	     characterToUpdate.setName(newName);
-
-	     System.out.println("Character name updated successfully.");
+	     String newName = sc.nextLine();	
+	     
+	     System.out.println("Press 1 to run or 2 to cancel : ");
+	     int checkIndex = sc.nextInt();
+	     if(checkIndex == 1) {
+	    	 Character characterToUpdate = characters.get(index - 1);
+	    	 characterToUpdate.setName(newName);
+	    	 System.out.println("Character name updated successfully.");	    	 
+	     } else if(checkIndex == 2){
+	    	 return;
+	     } 	
 		 
 	}
 	
@@ -192,9 +194,21 @@ public class CharacterView {
 	        System.out.println("Invalid character number.");
 	        return;
 	    }
-
-	    Character deletedCharacter = characters.remove(index - 1);
-	    System.out.println("Character deleted successfully:");
-	    System.out.println(deletedCharacter);
+		
+		System.out.println("Press 1 to run or 2 to cancel : ");
+	     int checkIndex = sc.nextInt();
+	     if(checkIndex == 1) {
+	    	Character deletedCharacter = characters.remove(index - 1);
+	 	    System.out.println("Character deleted successfully:");
+	 	    System.out.println(deletedCharacter);    	 
+	     } else if(checkIndex == 2){
+	    	 return;
+	     }
+	}
+	
+	//실행 종료하기
+	public void exitCharacter() {
+		System.out.println("Exiting the program.");
+		System.exit(0);
 	}
 }

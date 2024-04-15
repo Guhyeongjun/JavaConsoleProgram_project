@@ -1,11 +1,8 @@
 package controller;
 
-import java.util.Scanner;
-
 import view.CharacterView;
 
 public class CharacterController {
-	private Scanner sc = new Scanner(System.in);
 	
 	private CharacterView characterView;
 	
@@ -34,13 +31,12 @@ public class CharacterController {
 					deleteCharacter();
 					break;
 				case 5:
-            		System.out.println("Exiting the program.");
-            		System.exit(0);
+            		exitCharacter();
             		break;
 				}
 			}
 	}
-	
+
 	//Create character
 	public void getCharacter() {
 		characterView.getCharacter();
@@ -57,6 +53,9 @@ public class CharacterController {
 	public void deleteCharacter() {
 		characterView.deleteCharacter();
 	}
-	
+	//Exit character
+	public void exitCharacter() {
+		characterView.exitCharacter();
+	}
 	
 }
